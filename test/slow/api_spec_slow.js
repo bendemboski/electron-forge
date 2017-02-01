@@ -152,6 +152,13 @@ describe(`electron-forge API (with installer=${installer.substr(12)})`, () => {
       dir = path.resolve(os.tmpdir(), `electron-forge-test-${dirID}/electron-forge-test`);
       dirID += 1;
       await forge.init({ dir });
+
+      const packageJSON = await readPackageJSON(dir);
+      packageJSON.name = 'testapp';
+      packageJSON.productName = 'Test App';
+      packageJSON.config.forge.windowsStoreConfig.packageName = 'TestApp';
+      packageJSON.author = 'Test Author';
+      await fs.writeFile(path.resolve(dir, 'package.json'), JSON.stringify(packageJSON));
     });
 
     it('can package without errors', async () => {
