@@ -1,6 +1,7 @@
 platform:
 - x64
 environment:
+  DEBUG: electron-windows-installer:*
   nodejs_version: "6"
   matrix:
   - node_installer: yarn
