@@ -157,6 +157,7 @@ describe(`electron-forge API (with installer=${installer.substr(12)})`, () => {
       packageJSON.name = 'testapp';
       packageJSON.productName = 'Test App';
       packageJSON.config.forge.windowsStoreConfig.packageName = 'TestApp';
+      packageJSON.homepage = 'http://www.example.com/';
       packageJSON.author = 'Test Author';
       await fs.writeFile(path.resolve(dir, 'package.json'), JSON.stringify(packageJSON));
     });
