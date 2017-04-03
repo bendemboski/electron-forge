@@ -1,5 +1,5 @@
 export function checkSupportedPlatforms(pkg) {
-  const osList = require(`${pkg}/package.json`).os || [];
+  const osList = require(`${pkg}/package.json`).os || ['darwin', 'linux', 'win32'];
 
   return osList.filter(os => !os.startsWith('!'));
 }

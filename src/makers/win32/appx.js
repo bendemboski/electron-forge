@@ -4,9 +4,10 @@ import path from 'path';
 import { spawnPromise, findActualExecutable } from 'spawn-rx';
 
 import { ensureDirectory } from '../../util/ensure-output';
-import { checkSupportedPlatforms } from '../../util/check-supported-platforms';
 
-export const supportedPlatforms = checkSupportedPlatforms('electron-windows-store');
+// electron-windows-store doesn't set its 'os' field even though it only runs on
+// win32
+export const supportedPlatforms = ['win32'];
 
 // NB: This is not a typo, we require AppXs to be built on 64-bit
 // but if we're running in a 32-bit node.js process, we're going to
