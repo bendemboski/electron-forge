@@ -18,7 +18,7 @@ function debianArch(nodeArch) {
   }
 }
 
-export default async (dir, appName, targetArch, forgeConfig, packageJSON) => { // eslint-disable-line
+export default async ({ dir, targetArch, forgeConfig, packageJSON }) => {
   const arch = debianArch(targetArch);
   const outPath = path.resolve(dir, '../make', `${packageJSON.name}_${packageJSON.version}_${arch}.deb`);
 
