@@ -5,7 +5,7 @@ import glob from 'glob';
 import path from 'path';
 import pify from 'pify';
 import packager from 'electron-packager';
-import { hostArch } from 'electron-packager/targets';
+import { getHostArch } from '@electron/get';
 
 import getForgeConfig from '../util/forge-config';
 import getElectronVersion from '../util/get-electron-version';
@@ -63,7 +63,7 @@ export default async (providedOptions = {}) => {
   let { dir, interactive, arch, platform } = Object.assign({
     dir: process.cwd(),
     interactive: false,
-    arch: hostArch(),
+    arch: getHostArch(),
     platform: process.platform,
   }, providedOptions);
 

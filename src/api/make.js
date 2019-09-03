@@ -1,7 +1,7 @@
 import 'colors';
 import fs from 'fs-extra';
 import path from 'path';
-import { hostArch } from 'electron-packager/targets';
+import { getHostArch } from '@electron/get';
 
 import asyncOra from '../util/ora-handler';
 import getElectronVersion from '../util/get-electron-version';
@@ -47,7 +47,7 @@ export default async (providedOptions = {}) => {
     dir: process.cwd(),
     interactive: false,
     skipPackage: false,
-    arch: hostArch(),
+    arch: getHostArch(),
     platform: process.platform,
   }, providedOptions);
 
